@@ -14,14 +14,16 @@ import bs4
 import os
 import time
 import numpy as np
-import configparser
+import json
 
-config = configparser.ConfigParser()
-config.read('config.ini')
+# Load the JSON file
+with open('config.json', 'r') as file:
+    config_data = json.load(file)
 
-lang_smith_api_key = config['api_keys']['lang_smith_api_key']
-groq_api_key = config['api_keys']['groq_api_key']
-pinecone_api_key = config['api_keys']['pinecone_api_key']
+# Extract the API keys
+lang_smith_api_key = config_data['lang_smith_api_key']
+groq_api_key = config_data['groq_api_key']
+pinecone_api_key = config_data['pinecone_api_key']
 
 load_dotenv(find_dotenv())
 
