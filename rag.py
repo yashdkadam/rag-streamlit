@@ -54,7 +54,6 @@ class RAG:
                 )
             ),
         )
-        print(loader)
         self.embeddings = SentenceTransformerWrapper('all-MiniLM-L6-v2')
         self.groq_llm = ChatGroq(
             api_key=groq_api_key, 
