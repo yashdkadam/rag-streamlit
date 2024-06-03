@@ -50,10 +50,11 @@ class RAG:
             web_paths=(web_url,),
             bs_kwargs=dict(
             parse_only=bs4.SoupStrainer(
-                    class_=("post-content", "post-title", "post-header")
+                    id_=("mw-content-container")
                 )
             ),
         )
+        print(loader)
         self.embeddings = SentenceTransformerWrapper('all-MiniLM-L6-v2')
         self.groq_llm = ChatGroq(
             api_key=groq_api_key, 
